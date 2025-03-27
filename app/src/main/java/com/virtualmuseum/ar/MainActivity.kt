@@ -185,7 +185,7 @@ fun ARScreen(model: String) {
                 nodes.add(modelNode.value!!)
             },
             onSessionCreate = {
-                planeRenderer.isVisible = true
+                planeRenderer.isVisible = false
             }
         )
 
@@ -223,7 +223,7 @@ fun ARScreen(model: String) {
                     onClick = {
                         modelScale = (modelScale * 1.2f).coerceAtMost(2.0f)
                         modelNode.value?.scale = Scale(modelScale)
-                }) {
+                    }) {
                     Text(text = "Scale +")
                 }
 
@@ -235,7 +235,7 @@ fun ARScreen(model: String) {
                     onClick = {
                         modelScale = (modelScale * 0.8f).coerceAtLeast(0.1f)
                         modelNode.value?.scale = Scale(modelScale)
-                }) {
+                    }) {
                     Text(text = "Scale -")
                 }
 
@@ -247,7 +247,7 @@ fun ARScreen(model: String) {
                     onClick = {
                         modelRotationY += 45f
                         modelNode.value?.rotation = Rotation(0f, modelRotationY, 0f)
-                }) {
+                    }) {
                     Text(text = "Rotate")
                 }
 
@@ -260,7 +260,7 @@ fun ARScreen(model: String) {
                         modelNode.value?.detachAnchor()
                         isModelPlaced.value = false
                         placeModelButton.value = true
-                }) {
+                    }) {
                     Text(text = "Reset")
                 }
             }
